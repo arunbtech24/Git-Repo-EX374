@@ -1,7 +1,7 @@
 ---
   ansible-navigator:
     execution-environment:
-      image: hub.lab.example.com/ee-supported-rhel8:latest
+      image: aap.lab.example.com/ee-supported-rhel8:latest
       pull:
         policy: missing
     mode: stdout
