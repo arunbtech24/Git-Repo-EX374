@@ -14,22 +14,10 @@
         port: 80/tcp
         permanent: yes
         state: enabled
-      notify: reload firewalld
+      
 
     - name: copy alias conf file to the webserver and restart the serivce only if copy is succesful
       ansible.builtin.copy:
         src: alias.conf
         dest: /var/www/html/index.html
         force: yes
-      notify: restart httpd service
-
-  handlers:
-    - name: reload firewalld
-      ansible.builtin.command:
-        cmd: firewall-cmd --reload
-
-    - name: restart httpd service 
-      ansible.builtin.service:
-        name: httpd
-        state: restarted
-        enabled: true
